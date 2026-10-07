@@ -1,0 +1,11 @@
+
+ReportPath               : AdhReport-sample/index.html
+OutputPath               : AdhReport-sample
+StaleUsers               : 4
+StaleComputers           : 4
+NonExpiringPasswords     : 3
+EmptyGroups              : 3
+PrivilegedMembers        : 4
+PrivilegedMembersFlagged : 3
+
+

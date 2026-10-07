@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Active Directory Hygiene Report</title>
+<style>
+:root{--bg:#0f172a;--panel:#111c33;--line:#22304d;--text:#e2e8f0;--muted:#94a3b8;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--accent:#38bdf8}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:28px 32px;border-bottom:1px solid var(--line)}h1{margin:0 0 4px;font-size:22px}h2{font-size:17px;margin:0 0 12px}
+.meta{color:var(--muted);font-size:13px}main{padding:24px 32px;max-width:1400px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:28px}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:10px;padding:14px 16px}
+.card.warn{border-left-color:var(--warn)}.card .n{font-size:28px;font-weight:700}.card .l{color:var(--muted)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:22px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--accent);font-weight:600;position:sticky;top:0;background:var(--panel)}tr:hover td{background:#16233f}
+.empty{color:var(--ok)}footer{color:var(--muted);font-size:12px;padding:0 32px 28px}
+</style></head><body>
+<header><h1>Active Directory Hygiene Report</h1><div class="meta">Generated 2026-10-07 17:28 on MGMT01 by svc_reports</div>
+<div class="meta">Parameters: DaysInactive=90 | SearchBase=(domain) | Server=(default)</div></header><main>
+<div class="cards">
+<div class="card warn"><div class="n">4</div><div class="l">Stale users</div></div>
+<div class="card warn"><div class="n">4</div><div class="l">Stale computers</div></div>
+<div class="card warn"><div class="n">3</div><div class="l">Non-expiring passwords</div></div>
+<div class="card warn"><div class="n">3</div><div class="l">Empty groups</div></div>
+<div class="card warn"><div class="n">4</div><div class="l">Privileged group members</div></div>
+</div>
+<section><h2>Stale users (4)</h2>
+<table><thead><tr><th>ObjectClass</th><th>Name</th><th>SamAccountName</th><th>Detail</th><th>LastLogonDate</th><th>DaysSinceLogon</th><th>NeverLoggedOn</th><th>WhenCreated</th><th>PasswordLastSet</th><th>AdminCount</th><th>Description</th><th>DistinguishedName</th></tr></thead><tbody>
+<tr><td>user</td><td>Jamie Davis</td><td>jdavis</td><td>jdavis@contoso.local</td><td>2026-03-07</td><td>214</td><td>No</td><td>2022-08-29</td><td>2026-02-19</td><td></td><td>Former associate</td><td>CN=Jamie Davis,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>user</td><td>Taylor Clark</td><td>tclark</td><td>tclark@contoso.local</td><td>2026-05-29</td><td>131</td><td>No</td><td>2021-01-06</td><td>2026-04-30</td><td></td><td></td><td>CN=Taylor Clark,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>user</td><td>Summer Intern 2024</td><td>intern2024</td><td>intern2024@contoso.local</td><td></td><td></td><td>Yes</td><td>2025-08-13</td><td>2025-08-13</td><td></td><td>Summer program</td><td>CN=Summer Intern 2024,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>user</td><td>Old Admin</td><td>old.admin</td><td>old.admin@contoso.local</td><td>2025-08-23</td><td>410</td><td>No</td><td>2017-03-08</td><td>2024-04-20</td><td>1</td><td>Former IT</td><td>CN=Old Admin,OU=Staff,DC=contoso,DC=local</td></tr>
+</tbody></table></section>
+<section><h2>Stale computers (4)</h2>
+<table><thead><tr><th>ObjectClass</th><th>Name</th><th>SamAccountName</th><th>Detail</th><th>LastLogonDate</th><th>DaysSinceLogon</th><th>NeverLoggedOn</th><th>WhenCreated</th><th>PasswordLastSet</th><th>AdminCount</th><th>Description</th><th>DistinguishedName</th></tr></thead><tbody>
+<tr><td>computer</td><td>BR-LT-0142</td><td>BR-LT-0142$</td><td>Windows 10 Enterprise</td><td>2026-04-02</td><td>188</td><td>No</td><td>2022-08-29</td><td>2026-04-02</td><td></td><td></td><td>CN=BR-LT-0142,OU=Workstations,DC=contoso,DC=local</td></tr>
+<tr><td>computer</td><td>BR-DT-0077</td><td>BR-DT-0077$</td><td>Windows 10 Enterprise</td><td>2026-07-02</td><td>97</td><td>No</td><td>2022-08-29</td><td>2026-07-02</td><td></td><td></td><td>CN=BR-DT-0077,OU=Workstations,DC=contoso,DC=local</td></tr>
+<tr><td>computer</td><td>NO-LT-0311</td><td>NO-LT-0311$</td><td>Windows 11 Enterprise</td><td>2025-12-09</td><td>302</td><td>No</td><td>2022-08-29</td><td>2025-12-09</td><td></td><td></td><td>CN=NO-LT-0311,OU=Workstations,DC=contoso,DC=local</td></tr>
+<tr><td>computer</td><td>APP-OLD-02</td><td>APP-OLD-02$</td><td>Windows Server 2012 R2 Standard</td><td>2025-01-05</td><td>640</td><td>No</td><td>2022-08-29</td><td>2025-01-05</td><td></td><td></td><td>CN=APP-OLD-02,OU=Workstations,DC=contoso,DC=local</td></tr>
+</tbody></table></section>
+<section><h2>Non-expiring passwords (3)</h2>
+<table><thead><tr><th>Name</th><th>SamAccountName</th><th>PasswordLastSet</th><th>PasswordAgeDays</th><th>LastLogonDate</th><th>LikelyServiceAccount</th><th>Privileged</th><th>Description</th><th>DistinguishedName</th></tr></thead><tbody>
+<tr><td>Backup Service</td><td>svc_backup</td><td>2022-12-07</td><td>1400</td><td>2026-10-05</td><td>Yes</td><td>Yes</td><td>Backup job account</td><td>CN=Backup Service,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>Scanner SMTP</td><td>svc_scan</td><td>2021-01-06</td><td>2100</td><td>2026-10-02</td><td>No</td><td>No</td><td>Copier scan-to-email</td><td>CN=Scanner SMTP,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>Kelly Brown</td><td>kbrown</td><td>2024-11-06</td><td>700</td><td>2026-10-04</td><td>No</td><td>No</td><td></td><td>CN=Kelly Brown,OU=Staff,DC=contoso,DC=local</td></tr>
+</tbody></table></section>
+<section><h2>Empty groups (3)</h2>
+<table><thead><tr><th>Name</th><th>GroupCategory</th><th>GroupScope</th><th>WhenCreated</th><th>WhenChanged</th><th>ManagedBy</th><th>Description</th><th>DistinguishedName</th></tr></thead><tbody>
+<tr><td>SG-Project-Merger-2019</td><td>Security</td><td>Global</td><td>2020-06-20</td><td>2023-08-14</td><td></td><td></td><td>CN=SG-Project-Merger-2019,OU=Groups,DC=contoso,DC=local</td></tr>
+<tr><td>DL-Holiday-Party</td><td>Distribution</td><td>Universal</td><td>2023-10-03</td><td>2025-04-05</td><td></td><td></td><td>CN=DL-Holiday-Party,OU=Groups,DC=contoso,DC=local</td></tr>
+<tr><td>SG-Citrix-PilotUsers</td><td>Security</td><td>DomainLocal</td><td>2024-07-29</td><td>2025-09-02</td><td></td><td></td><td>CN=SG-Citrix-PilotUsers,OU=Groups,DC=contoso,DC=local</td></tr>
+</tbody></table></section>
+<section><h2>Privileged group members (4)</h2>
+<table><thead><tr><th>Group</th><th>Name</th><th>SamAccountName</th><th>ObjectClass</th><th>Enabled</th><th>LastLogonDate</th><th>PasswordLastSet</th><th>PasswordNeverExpires</th><th>Flags</th><th>DistinguishedName</th></tr></thead><tbody>
+<tr><td>Domain Admins</td><td>A Admin</td><td>a.admin</td><td>user</td><td>Yes</td><td>2026-10-06</td><td>2026-08-28</td><td>No</td><td></td><td>CN=a.admin,OU=Admins,DC=contoso,DC=local</td></tr>
+<tr><td>Domain Admins</td><td>Old Admin</td><td>old.admin</td><td>user</td><td>No</td><td>2025-08-23</td><td>2024-04-20</td><td>Yes</td><td>Disabled account in privileged group; No sign-in for 90+ days; Password never expires; Password older than 365 days</td><td>CN=old.admin,OU=Staff,DC=contoso,DC=local</td></tr>
+<tr><td>Backup Operators</td><td>Backup Service</td><td>svc_backup</td><td>user</td><td>Yes</td><td>2026-10-05</td><td>2022-12-07</td><td>Yes</td><td>Password never expires; Password older than 365 days</td><td>CN=svc_backup,OU=Service,DC=contoso,DC=local</td></tr>
+<tr><td>Server Operators</td><td>APP-OLD-02</td><td>APP-OLD-02$</td><td>computer</td><td></td><td></td><td></td><td></td><td>Non-user member (computer)</td><td>CN=APP-OLD-02,OU=Servers,DC=contoso,DC=local</td></tr>
+</tbody></table></section>
+</main><footer>AD Hygiene Toolkit. Report is read-only output; no directory changes were made while generating it.</footer></body></html>
+
